@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+.container {
+  width: 900px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.items {
+  position: relative;
+  width: 700px;
+  height: 300px;
+}
+
+.items ::selection {
+  background: transparent;
+}
+
+.item {
+  height: 100%;
+  display: none;
+  position: relative;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item.active {
+  display: block;
+}
+.stop,
+.start {
+  padding: 5px 10px;
+  background: #ccc;
+  position: absolute;
+  top: 25%;
+  transform: translate(-50%);
+  cursor: pointer;
+  z-index: 999;
+}
+.start {
+  left: 45%;
+}
+.stop {
+  right: 45%;
+}
+
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+  z-index: 999;
+}
+
+.next {
+  left: 110%;
+}
+
+.prev {
+  right: 110%;
+}
+
+.no-click {
+  pointer-events: none;
+}
+
+/* bonus 2 */
+.all {
+  display: flex;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 40;
+  height: 100%;
+}
+.all div {
+  width: calc(100% / 5);
+  height: 150px;
+}
+.all img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+.all .thumbnail-active {
+  border: salmon 1px solid;
+  opacity: 1;
+}
