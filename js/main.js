@@ -127,6 +127,23 @@ thumbnailsContainer.append(createThumnail());
 const images = document.querySelectorAll(".item");
 //inizializzo una variabile che raccoglie tutte le mie immagini di .all
 const imagesAll = document.querySelectorAll(".thumbnails div");
+
+//! evento click sulle thumbnail
+for (let i = 0; i < imagesAll.length; i++) {
+  imagesAll[i].addEventListener("click", function () {
+    for (let j = 0; j < imagesAll.length; j++) {
+      if (j !== i) {
+        images[j].classList.remove("active");
+        imagesAll[j].classList.remove("thumbnail-active");
+      }
+    }
+    images[i].classList.add("active");
+    imagesAll[i].classList.add("thumbnail-active");
+    counter = i;
+  });
+}
+
+//!eventi bottoni al click e evento iniziale
 next.addEventListener("click", nextImage);
 prev.addEventListener("click", prevImage);
 
