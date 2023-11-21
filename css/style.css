@@ -80,7 +80,7 @@ img {
 }
 
 /* bonus 2 */
-.all {
+.thumbnails {
   display: flex;
   position: absolute;
   left: 0;
@@ -89,17 +89,16 @@ img {
   z-index: 40;
   height: 100%;
 }
-.all div {
+.thumbnails div {
   width: calc(100% / 5);
   height: 150px;
 }
-.all img {
+.thumbnails img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.5;
 }
-.all .thumbnail-active {
-  border: salmon 1px solid;
-  opacity: 1;
+.thumbnails .thumbnail-active {
+  border: lightblue 1px solid;
+  opacity: 0.5;
 }

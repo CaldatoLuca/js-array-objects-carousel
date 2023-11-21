@@ -1,9 +1,42 @@
 "use.strict";
-/*
-?------
-!CODICE
-?------
-*/
+//! funzioni
+
+const createItem = () => {
+  const fragment = document.createDocumentFragment();
+  imgArray.forEach((element, index) => {
+    const item = document.createElement("div");
+    item.classList.add("item");
+    if (index === 0) {
+      item.classList.add("active");
+    }
+    item.innerHTML = `<img src="${element.src}" alt="${element.alt}">`;
+    fragment.append(item);
+  });
+
+  return fragment;
+};
+
+const createThumnail = () => {
+  const fragment = document.createDocumentFragment();
+  imgArray.forEach((element, index) => {
+    const item = document.createElement("div");
+
+    if (index === 0) {
+      item.classList.add("thumbnail-active");
+    }
+    item.innerHTML = `<img src="${element.src}" alt="${element.alt}">`;
+    fragment.append(item);
+  });
+
+  return fragment;
+};
+
+//! codice
+//*elementi html
+const imagesContainer = document.querySelector(".items");
+const thumbnailsContainer = document.querySelector(".thumbnails");
+
+//*variabili
 const imgArray = [
   {
     alt: "Immagine 1",
@@ -36,3 +69,6 @@ const imgArray = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
+
+imagesContainer.append(createItem());
+thumbnailsContainer.append(createThumnail());
