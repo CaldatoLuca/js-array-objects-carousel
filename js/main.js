@@ -81,6 +81,8 @@ const imagesContainer = document.querySelector(".items");
 const thumbnailsContainer = document.querySelector(".thumbnails");
 const prev = document.querySelector(".prev");
 const next = document.querySelector(".next");
+const stop = document.querySelector(".stop");
+const start = document.querySelector(".start");
 
 //*variabili
 let counter = 0;
@@ -127,3 +129,14 @@ const images = document.querySelectorAll(".item");
 const imagesAll = document.querySelectorAll(".thumbnails div");
 next.addEventListener("click", nextImage);
 prev.addEventListener("click", prevImage);
+
+let startEvent = setInterval(nextImage, 1000);
+
+start.addEventListener("click", function () {
+  clearInterval(startEvent);
+  startEvent = setInterval(nextImage, 1000);
+});
+
+stop.addEventListener("click", function () {
+  clearInterval(startEvent);
+});
