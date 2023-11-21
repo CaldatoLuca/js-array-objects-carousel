@@ -1,20 +1,19 @@
 "use.strict";
-//! funzioni
 
+//! funzioni
+//creazione descrizione dell' immagine
 const createTextImg = (title) => {
   const item = document.createElement("div");
   item.classList.add("img-text");
   item.innerHTML = `<h2>${title.title}</h2>
   <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-    Necessitatibus tempora facere quibusdam corrupti aut voluptates nam
-    velit aperiam iure officiis similique ex neque, facilis harum eum
-    dolor minima dolore culpa?
+  ${title.description}
   </p>`;
 
   return item;
 };
 
+//creazione del div.item
 const createItem = () => {
   const fragment = document.createDocumentFragment();
   imgArray.forEach((element, index) => {
@@ -31,6 +30,7 @@ const createItem = () => {
   return fragment;
 };
 
+//creazione del div nelle thumbnails
 const createThumnail = () => {
   const fragment = document.createDocumentFragment();
   imgArray.forEach((element, index) => {
@@ -46,12 +46,44 @@ const createThumnail = () => {
   return fragment;
 };
 
+// evento per la prossima immagine
+function nextImage() {
+  images[counter].classList.remove("active"); //immagine principale
+  imagesAll[counter].classList.remove("thumbnail-active"); //immagine thumbnail
+
+  if (counter === Number(images.length) - 1) {
+    counter = 0;
+  } else {
+    counter++;
+  }
+
+  images[counter].classList.add("active"); //immagine principale
+  imagesAll[counter].classList.add("thumbnail-active"); //immagine thumbnail
+}
+// evento per la immagine precedente
+function prevImage() {
+  images[counter].classList.remove("active"); //immagine principale
+  imagesAll[counter].classList.remove("thumbnail-active"); //immagine thumbnail
+
+  if (counter === 0) {
+    counter = images.length - 1;
+  } else {
+    counter--;
+  }
+
+  images[counter].classList.add("active"); //immagine principale
+  imagesAll[counter].classList.add("thumbnail-active"); //immagine thumbnail
+}
+
 //! codice
 //*elementi html
 const imagesContainer = document.querySelector(".items");
 const thumbnailsContainer = document.querySelector(".thumbnails");
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
 
 //*variabili
+let counter = 0;
 const imgArray = [
   {
     alt: "Immagine 1",
@@ -85,5 +117,13 @@ const imgArray = [
   },
 ];
 
+// aggiungo le img e le thumnail ai loro contenitori html
 imagesContainer.append(createItem());
 thumbnailsContainer.append(createThumnail());
+
+//inizializzo una variabile che raccoglie tutte le mie immagini .items (simile ad un array)
+const images = document.querySelectorAll(".item");
+//inizializzo una variabile che raccoglie tutte le mie immagini di .all
+const imagesAll = document.querySelectorAll(".thumbnails div");
+next.addEventListener("click", nextImage);
+prev.addEventListener("click", prevImage);
