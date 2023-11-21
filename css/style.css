@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  height: 100vh;
+}
+
 img {
   display: block;
 }
@@ -18,8 +22,8 @@ img {
 
 .items {
   position: relative;
-  width: 700px;
-  height: 300px;
+  width: 900px;
+  height: 400px;
 }
 
 .items ::selection {
@@ -46,7 +50,7 @@ img {
   padding: 5px 10px;
   background: #ccc;
   position: absolute;
-  top: 25%;
+  top: 10%;
   transform: translate(-50%);
   cursor: pointer;
   z-index: 999;
@@ -101,4 +105,15 @@ img {
 .thumbnails .thumbnail-active {
   border: lightblue 1px solid;
   opacity: 0.5;
+}
+
+/* text over img */
+.img-text {
+  position: absolute;
+  right: 100px;
+  bottom: 40px;
+  left: 40px;
+  color: white;
+  padding: 10px;
+  background-color: rgb(0, 0, 0, 0.5);
 }

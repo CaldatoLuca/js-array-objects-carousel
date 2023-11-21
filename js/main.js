@@ -1,6 +1,20 @@
 "use.strict";
 //! funzioni
 
+const createTextImg = (title) => {
+  const item = document.createElement("div");
+  item.classList.add("img-text");
+  item.innerHTML = `<h2>${title.title}</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Necessitatibus tempora facere quibusdam corrupti aut voluptates nam
+    velit aperiam iure officiis similique ex neque, facilis harum eum
+    dolor minima dolore culpa?
+  </p>`;
+
+  return item;
+};
+
 const createItem = () => {
   const fragment = document.createDocumentFragment();
   imgArray.forEach((element, index) => {
@@ -10,6 +24,7 @@ const createItem = () => {
       item.classList.add("active");
     }
     item.innerHTML = `<img src="${element.src}" alt="${element.alt}">`;
+    item.append(createTextImg(element));
     fragment.append(item);
   });
 
