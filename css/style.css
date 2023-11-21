@@ -1,23 +1,53 @@
+/* !reset */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* !common */
+
 body {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
   display: block;
 }
-.container {
-  width: 900px;
-  height: 100vh;
-  margin: 0 auto;
+
+/* !header */
+header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(236, 227, 206);
+}
+.stop,
+.start {
+  padding: 5px 10px;
+  background: rgb(58, 77, 57);
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+}
+
+/* !main */
+main {
+  background-color: rgb(115, 144, 114);
+  flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+}
+main h2 {
+  color: white;
+  text-align: center;
 }
 
 .items {
@@ -33,7 +63,6 @@ img {
 .item {
   height: 100%;
   display: none;
-  position: relative;
 }
 
 .item img {
@@ -44,22 +73,6 @@ img {
 
 .item.active {
   display: block;
-}
-.stop,
-.start {
-  padding: 5px 10px;
-  background: #ccc;
-  position: absolute;
-  top: 10%;
-  transform: translate(-50%);
-  cursor: pointer;
-  z-index: 999;
-}
-.start {
-  left: 45%;
-}
-.stop {
-  right: 45%;
 }
 
 .prev,
@@ -85,17 +98,15 @@ img {
 
 /* bonus 2 */
 .thumbnails {
+  width: 900px;
   display: flex;
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 100%;
-  z-index: 40;
-  height: 100%;
+  top: 10%;
 }
 .thumbnails div {
-  width: calc(100% / 5);
-  height: 150px;
+  margin: 20px;
+  width: calc(100% / 5 - 40px);
+  height: 100px;
 }
 .thumbnails img {
   width: 100%;
@@ -111,7 +122,7 @@ img {
 .img-text {
   position: absolute;
   right: 100px;
-  bottom: 40px;
+  bottom: 0;
   left: 40px;
   color: white;
   padding: 10px;

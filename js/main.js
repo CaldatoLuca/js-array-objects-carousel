@@ -5,7 +5,7 @@
 const createTextImg = (title) => {
   const item = document.createElement("div");
   item.classList.add("img-text");
-  item.innerHTML = `<h2>${title.title}</h2>
+  item.innerHTML = `<h3>${title.title}</h3>
   <p>
   ${title.description}
   </p>`;
@@ -90,31 +90,31 @@ const imgArray = [
   {
     alt: "Immagine 1",
     src: "./img/img1.jpg",
-    title: "Immagine 1",
+    title: "Uomo sul Lago",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     alt: "Immaggine 2",
     src: "./img/img2.jpg",
-    title: "Immagine 2",
+    title: "Paesino sul Lago",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     alt: "Immaggine 3",
     src: "./img/img3.jpg",
-    title: "Immagine 3",
+    title: "Londra",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     alt: "Immaggine 4",
     src: "./img/img4.jpg",
-    title: "Immagine 4",
+    title: "Città",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
   {
     alt: "Immaggine 5",
     src: "./img/img5.jpg",
-    title: "Immagine 5",
+    title: "Caraibi",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   },
 ];
